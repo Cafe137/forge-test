@@ -42,7 +42,7 @@ function findPath(path) {
     const origin = process.execPath
     const parts = origin.split(sep)
     while (parts.length) {
-        const currentPath = join(...parts, path)
+        const currentPath = join(sep, ...parts, path)
         console.log('Checking path', currentPath)
         if (existsSync(currentPath)) {
             return currentPath
