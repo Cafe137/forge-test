@@ -1,7 +1,7 @@
 {
     "name": "forge-test",
     "productName": "forge-test",
-    "version": "1.0.3",
+    "version": "1.0.4",
     "description": "My Electron application description",
     "main": "src/index.js",
     "scripts": {
@@ -23,24 +23,13 @@
             "packagerConfig": {},
             "makers": [
                 {
-                    "name": "@electron-forge/maker-squirrel",
-                    "config": {
-                        "name": "forge_test"
-                    }
-                },
-                {
-                    "name": "@electron-forge/maker-zip",
+                    "name": "electron-forge-maker-zip-all",
                     "platforms": [
-                        "darwin"
+                        "darwin",
+                        "mas",
+                        "win32",
+                        "linux"
                     ]
-                },
-                {
-                    "name": "@electron-forge/maker-deb",
-                    "config": {}
-                },
-                {
-                    "name": "@electron-forge/maker-rpm",
-                    "config": {}
                 }
             ],
             "publishers": [
@@ -63,11 +52,8 @@
     },
     "devDependencies": {
         "@electron-forge/cli": "^6.0.0-beta.63",
-        "@electron-forge/maker-deb": "^6.0.0-beta.63",
-        "@electron-forge/maker-rpm": "^6.0.0-beta.63",
-        "@electron-forge/maker-squirrel": "^6.0.0-beta.63",
-        "@electron-forge/maker-zip": "^6.0.0-beta.63",
         "@electron-forge/publisher-github": "^6.0.0-beta.63",
-        "electron": "18.0.3"
+        "electron": "18.0.3",
+        "electron-forge-maker-zip-all": "^0.1.0"
     }
 }
