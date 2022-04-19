@@ -15,8 +15,8 @@ module.exports = {
         if (makeResult.platform === 'darwin') {
             unzipSync(makeResult.artifacts[0], dirName)
         } else {
-            console.log({ artifact })
             for (const artifact of makeResult.artifacts) {
+                console.log({ artifact })
                 copySync(artifact, dirName)
             }
         }
