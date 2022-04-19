@@ -17,7 +17,7 @@ module.exports = {
         } else {
             for (const artifact of makeResult.artifacts) {
                 console.log({ artifact })
-                copySync(artifact, dirName)
+                copySync(artifact, `${dirName}/`)
             }
         }
         zipSync(dirName, name)
