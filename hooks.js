@@ -7,14 +7,18 @@ module.exports = {
         const [makeResult] = makeResults
         const dirName = `${makeResult.packageJSON.name}-${makeResult.platform}-${makeResult.arch}-${makeResult.packageJSON.version}`
         const name = `${dirName}.zip`
+        console.log({ name })
         if (!existsSync(dirName)) {
             mkdirSync(dirName)
         }
         copySync('static', dirName)
-        if (makeResult.artifacts[0].endsWith('.zip')) {
+        if (makeResult.platform === 'darwin') {
             unzipSync(makeResult.artifacts[0], dirName)
         } else {
-            copySync(makeResult.artifacts[0], dirName)
+            console.log({ artifact })
+            for (const artifact of makeResult.artifacts) {
+                copySync(artifact, dirName)
+            }
         }
         zipSync(dirName, name)
         return [
